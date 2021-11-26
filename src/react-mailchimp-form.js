@@ -13,7 +13,7 @@ class Mailchimp extends React.Component {
         }).join("&");
         const path = `${action}&${values}`;
         const url = path.replace('/post?', '/post-json?');
-        const regex = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/;
+        const regex = /^([\w_.\-+])+@([\w-]+\.)+([\w]{2,10})+$/;
         const email = this.state['EMAIL'];
         (!regex.test(email)) ? this.setState({ status: "empty" }) : this.sendData(url);
     };
@@ -29,7 +29,7 @@ class Mailchimp extends React.Component {
                 this.setState({ status: 'error' });
             } else {
                 this.setState({ status: 'success' });
-            };
+            }
         });
     }
 
